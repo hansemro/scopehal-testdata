@@ -2,7 +2,7 @@ version: 2
 metadata:
   appver: ngscopeclient 0.1-2c2634b
   appdate: Oct  3 2023 11:19:29
-  created: 2023-10-04 04:27:42 PM
+  created: 2023-10-04 11:59:22 PM
 instruments:
   inst1:
     id: 1
@@ -13,10 +13,10 @@ instruments:
     transport: lan
     args: 169.254.149.18:5025
     driver: siglent
-    rate: 10000000
-    depth: 1000000
+    rate: 50000000
+    depth: 100000
     interleave: false
-    triggerpos: 50000000000000
+    triggerpos: 231000000000
     channels:
       ch0:
         id: 2
@@ -49,8 +49,8 @@ instruments:
         attenuation: 1
         bwlimit: 0
         yunit: V
-        vrange: 0.744000018
-        offset: -0.101000004
+        vrange: 6.79955006
+        offset: -1.71994102
         coupling: dc_1M
       ch2:
         id: 4
@@ -66,8 +66,8 @@ instruments:
         attenuation: 1
         bwlimit: 0
         yunit: V
-        vrange: 0.712000012
-        offset: -0.162
+        vrange: 7.23010683
+        offset: -1.58227694
         coupling: dc_1M
       ch3:
         id: 5
@@ -83,8 +83,8 @@ instruments:
         attenuation: 1
         bwlimit: 0
         yunit: V
-        vrange: 0.776000023
-        offset: -0.107000001
+        vrange: 7.09200525
+        offset: -1.54729033
         coupling: dc_1M
       ch4:
         id: 6
@@ -101,7 +101,7 @@ instruments:
       parameters:
         Edge: Rising
         Level: 1.94 V
-      id: 7
+      id: 19
       type: Edge
     triggerdeskew: 0
     type: oscilloscope
@@ -110,6 +110,28 @@ triggergroups:
     primary: 1
     secondaries: ~
 decodes:
+  filter9:
+    inputs:
+      din: 3/0
+    parameters:
+      Hysteresis: 0 mV
+      Threshold: 1.5 V
+    id: 9
+    protocol: Threshold
+    color: "#1f78b4"
+    nick: Threshold_TDO
+    name: Threshold_1
+  filter10:
+    inputs:
+      din: 4/0
+    parameters:
+      Hysteresis: 0 mV
+      Threshold: 1.5 V
+    id: 10
+    protocol: Threshold
+    color: "#b2df8a"
+    nick: Threshold_TMS
+    name: Threshold_2
   filter12:
     inputs:
       TDI: 8/0
@@ -127,12 +149,12 @@ decodes:
       din: 5/0
     parameters:
       Hysteresis: 0 mV
-      Threshold: 150 mV
+      Threshold: 1.5 V
     id: 8
     protocol: Threshold
     color: "#33a02c"
     nick: Threshold_TDI
-    name: Threshold_4
+    name: Threshold_3
   filter11:
     inputs:
       din: 2/0
@@ -144,32 +166,10 @@ decodes:
     color: "#a6cee3"
     nick: Threshold_TCK
     name: Threshold_1
-  filter9:
-    inputs:
-      din: 3/0
-    parameters:
-      Hysteresis: 0 mV
-      Threshold: 150 mV
-    id: 9
-    protocol: Threshold
-    color: "#1f78b4"
-    nick: Threshold_TDO
-    name: Threshold_2
-  filter10:
-    inputs:
-      din: 4/0
-    parameters:
-      Hysteresis: 0 mV
-      Threshold: 150 mV
-    id: 10
-    protocol: Threshold
-    color: "#b2df8a"
-    nick: Threshold_TMS
-    name: Threshold_3
 ui_config:
   areas:
-    area14:
-      id: 14
+    area44:
+      id: 44
       streams:
         stream0:
           persistence: false
@@ -186,8 +186,8 @@ ui_config:
           channel: 12
           stream: 0
           colorRamp: eye-gradient-viridis
-    area15:
-      id: 15
+    area45:
+      id: 45
       streams:
         stream0:
           persistence: false
@@ -199,8 +199,8 @@ ui_config:
           channel: 9
           stream: 0
           colorRamp: eye-gradient-viridis
-    area16:
-      id: 16
+    area46:
+      id: 46
       streams:
         stream0:
           persistence: false
@@ -212,8 +212,8 @@ ui_config:
           channel: 10
           stream: 0
           colorRamp: eye-gradient-viridis
-    area17:
-      id: 17
+    area47:
+      id: 47
       streams:
         stream0:
           persistence: false
@@ -226,25 +226,26 @@ ui_config:
           stream: 0
           colorRamp: eye-gradient-viridis
   groups:
-    group13:
+    group43:
       timebaseResolution: fs
-      pixelsPerXUnit: 5.86575197e-08
-      xAxisOffset: 49995270806560
+      pixelsPerXUnit: 2.9328757e-07
+      xAxisOffset: 230669629998
       name: Waveform Group 1
       cursorConfig: none
       xcursor0: 0
       xcursor1: 0
       areas:
-        area14:
-          id: 14
-        area15:
-          id: 15
-        area16:
-          id: 16
-        area17:
-          id: 17
+        area44:
+          id: 44
+        area45:
+          id: 45
+        area46:
+          id: 46
+        area47:
+          id: 47
   markers: ~
   dialogs:
     analyzers:
       JTAG_1: 12
     history: true
+    timebase: true
